@@ -16,7 +16,7 @@ self.__precacheManifest = [
     "url": "/react-instagram-dp/static/css/main.dc26435b.chunk.css"
   },
   {
-    "revision": "52dae5ad02bf025d7637ed4ca62870af",
+    "revision": "c36195f219d01fb3fb1ed987ccc6e8ee",
     "url": "/react-instagram-dp/index.html"
   }
 ];
