@@ -1,7 +1,5 @@
 import axios from 'axios';
 import userId from './userId';
-import { reject } from 'q';
-
 
 // let username='instagram';
 const userData = username => userId(username).then(id=>{
