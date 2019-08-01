@@ -35,6 +35,7 @@ class App extends Component {
       <div className="container">
         <div className="flex">
           <div className="box">
+          <h3>Hey, Stalker!</h3>
             <h2>📸 Instagram DP</h2>
             <div className="form-container">
               <form onSubmit={this.handleSubmit}>
@@ -44,7 +45,7 @@ class App extends Component {
                 </button>
               </form>
             </div>
-            <div className="text-center">
+            <div className="text-center mt-5">
               {this.state.loading ? (
                 "loading...."
               ) : this.state.error ? (
