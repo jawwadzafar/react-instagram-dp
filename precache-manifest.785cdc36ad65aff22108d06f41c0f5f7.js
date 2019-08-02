@@ -4,19 +4,19 @@ self.__precacheManifest = [
     "url": "/react-instagram-dp/static/js/runtime~main.9c539b0a.js"
   },
   {
-    "revision": "6d7b5edfc74723856fb6",
-    "url": "/react-instagram-dp/static/js/main.1aec8cc2.chunk.js"
+    "revision": "aeed3e32cfdc3b5cc202",
+    "url": "/react-instagram-dp/static/js/main.14bc9ed5.chunk.js"
   },
   {
     "revision": "ac6c3f7920ddd542dd15",
     "url": "/react-instagram-dp/static/js/2.cf38e645.chunk.js"
   },
   {
-    "revision": "6d7b5edfc74723856fb6",
-    "url": "/react-instagram-dp/static/css/main.281c0cc0.chunk.css"
+    "revision": "aeed3e32cfdc3b5cc202",
+    "url": "/react-instagram-dp/static/css/main.27ded49b.chunk.css"
   },
   {
-    "revision": "8e3b277d59da06ac8850d2505d26fb32",
+    "revision": "7b8c6b8caa0e3a05ca7396236d930747",
     "url": "/react-instagram-dp/index.html"
   }
 ];
