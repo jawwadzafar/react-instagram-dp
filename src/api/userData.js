@@ -5,9 +5,7 @@ import userId from './userId';
 const userData = username => userId(username).then(id=>{
     let url =`https://i.instagram.com/api/v1/users/${id}/info/`;
     return axios.get(url).then(data=>{
-        return new Promise((resolve,reject)=>{
-            return resolve(data.data.user)
-        })
+            return data.data.user
     })
 });
 
