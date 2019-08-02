@@ -13,11 +13,8 @@ class App extends Component {
       loading: false
     };
   }
-
-  handleSubmit = e => {
-    e.preventDefault();
-    this.setState({ loading: true });
-    userData(this.state.username)
+  loadUserData(username) {
+    userData(username)
       .then(data => {
         this.setState({
           img: data.hd_profile_pic_url_info.url,
@@ -29,12 +26,21 @@ class App extends Component {
         this.setState({ error: true, loading: false });
         console.log(err);
       });
+  }
+
+  handleSubmit = e => {
+    let username = this.state.username;
+    e.preventDefault();
+    if (username) {
+      this.setState({ loading: true });
+      this.loadUserData(username);
+    }
   };
   handleInput = e => {
     this.setState({ username: e.target.value });
   };
   handleClear = e => {
-    this.setState({ username: "", img: null });
+    this.setState({ username: "" });
   };
 
   render() {
