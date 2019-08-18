@@ -16,8 +16,14 @@ class App extends Component {
   loadUserData(username) {
     userData(username)
       .then(data => {
+        let imgUrl = null;
+        if(data.hd_profile_pic_url_info){
+          imgUrl = data.hd_profile_pic_url_info.url;
+        }else {
+          imgUrl = data.profile_pic_url;
+        }
         this.setState({
-          img: data.hd_profile_pic_url_info.url,
+          img: imgUrl,
           error: false,
           loading: false
         });
@@ -57,7 +63,7 @@ class App extends Component {
                 <button type="submit" className="search-button">
                   🔎<span>Search</span>
                 </button>
-                {username ? <button onClick={this.handleClear} class="close-icon" type="reset" /> : null}
+                {username ? <button onClick={this.handleClear} className="close-icon" type="reset" /> : null}
               </form>
             </div>
             <div className="dynamic">{loading ? <Loader /> : <DisplayBox error={error} img={img} />}</div>
