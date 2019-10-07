@@ -10,22 +10,30 @@ class App extends Component {
       username: "",
       img: null,
       error: false,
-      loading: false
+      loading: false,
+      followers:0,
+      following:0,
+      bio:'',
     };
   }
   loadUserData(username) {
     userData(username)
       .then(data => {
+        console.log(data.edge_follow)
         let imgUrl = null;
-        if(data.hd_profile_pic_url_info){
-          imgUrl = data.hd_profile_pic_url_info.url;
+        if(data.profile_pic_url_hd){
+          imgUrl = data.profile_pic_url_hd;
         }else {
           imgUrl = data.profile_pic_url;
         }
         this.setState({
           img: imgUrl,
           error: false,
-          loading: false
+          loading: false,
+          following:data.edge_follow.count,
+          followers:data.edge_followed_by.count,
+          bio:data.biography,
+
         });
       })
       .catch(err => {
@@ -50,7 +58,7 @@ class App extends Component {
   };
 
   render() {
-    let { loading, error, img, username } = this.state;
+    let { loading, username } = this.state;
     return (
       <div className="container">
         <div className="flex">
@@ -66,7 +74,7 @@ class App extends Component {
                 {username ? <button onClick={this.handleClear} className="close-icon" type="reset" /> : null}
               </form>
             </div>
-            <div className="dynamic">{loading ? <Loader /> : <DisplayBox error={error} img={img} />}</div>
+            <div className="dynamic">{loading ? <Loader /> : <DisplayBox {...this.state} />}</div>
           </div>
         </div>
       </div>

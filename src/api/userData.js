@@ -1,12 +1,11 @@
 import axios from 'axios';
-import userId from './userId';
 
 // let username='instagram';
-const userData = username => userId(username).then(id=>{
-    let url =`https://i.instagram.com/api/v1/users/${id}/info/`;
+const userData = username => {
+    let url =`https://instagram.com/${username}/?__a=1`;
     return axios.get(url).then(data=>{
-            return data.data.user
+            return data.data.graphql.user
     })
-});
+};
 
 export default userData

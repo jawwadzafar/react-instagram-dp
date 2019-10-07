@@ -3,11 +3,11 @@ import React from "react";
 import ImageBox from "./ImageBox";
 import NotFound from "./NotFound";
 
-const DisplayBox = ({ error, img }) => {
-  if (error) {
+const DisplayBox = (props) => {
+  if (props.error) {
     return <NotFound />;
-  } else if (img) {
-    return <ImageBox img={img} />;
+  } else if (props.img) {
+    return <ImageBox {...props} />;
   } else return null;
 };
 
