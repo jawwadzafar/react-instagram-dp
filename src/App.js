@@ -16,13 +16,14 @@ class App extends Component {
       loading: false,
       followers: 0,
       following: 0,
-      bio: ""
+      bio: "",
+      fullName: ''
     };
   }
   loadUserData(username) {
     userData(username)
       .then(data => {
-        console.log(data.edge_follow);
+        console.log(data);
         let imgUrl = null;
         if (data.profile_pic_url_hd) {
           imgUrl = data.profile_pic_url_hd;
@@ -35,7 +36,8 @@ class App extends Component {
           loading: false,
           following: data.edge_follow.count,
           followers: data.edge_followed_by.count,
-          bio: data.biography
+          bio: data.biography,
+          fullName: data.full_name
         });
       })
       .catch(err => {
