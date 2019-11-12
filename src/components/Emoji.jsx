@@ -5,7 +5,6 @@ const Emoji = ({ label, symbol, ...rest }) => (
     {...rest}
     role="img"
     aria-label={label ? label : ""}
-    aria-hidden={label ? "false" : "true"}
   >
     {symbol}
   </span>

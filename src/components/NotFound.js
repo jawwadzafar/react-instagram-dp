@@ -1,9 +1,10 @@
 import React from "react";
+import Emoji from "./Emoji";
 
 const NotFound = () => {
   return (
     <div>
-      <p>😢 User Not Found</p>
+      <p><Emoji symbol="😢"/> User Not Found</p>
     </div>
   );
 };
