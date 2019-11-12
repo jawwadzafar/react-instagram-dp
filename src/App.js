@@ -2,6 +2,9 @@ import React, { Component } from "react";
 import userData from "./api/userData";
 import Loader from "./components/Loader";
 import DisplayBox from "./components/DisplayBox";
+import Emoji from "./components/Emoji";
+
+
 
 class App extends Component {
   constructor() {
@@ -11,29 +14,30 @@ class App extends Component {
       img: null,
       error: false,
       loading: false,
-      followers:0,
-      following:0,
-      bio:'',
+      followers: 0,
+      following: 0,
+      bio: "",
+      fullName: ''
     };
   }
   loadUserData(username) {
     userData(username)
       .then(data => {
-        console.log(data.edge_follow)
+        console.log(data);
         let imgUrl = null;
-        if(data.profile_pic_url_hd){
+        if (data.profile_pic_url_hd) {
           imgUrl = data.profile_pic_url_hd;
-        }else {
+        } else {
           imgUrl = data.profile_pic_url;
         }
         this.setState({
           img: imgUrl,
           error: false,
           loading: false,
-          following:data.edge_follow.count,
-          followers:data.edge_followed_by.count,
-          bio:data.biography,
-
+          following: data.edge_follow.count,
+          followers: data.edge_followed_by.count,
+          bio: data.biography,
+          fullName: data.full_name
         });
       })
       .catch(err => {
@@ -64,17 +68,32 @@ class App extends Component {
         <div className="flex">
           <div className="box">
             <h3>Hey, Stalker!</h3>
-            <h2>📸 Instagram DP</h2>
+            <h2>
+              <Emoji symbol="📸" label="Camera" /> Instagram DP
+            </h2>
             <div className="form-container">
               <form onSubmit={this.handleSubmit}>
-                <input placeholder="✍️ Enter IG username" value={this.state.username} onChange={this.handleInput} />
+                <input
+                  placeholder="✍️ Enter IG username"
+                  value={this.state.username}
+                  onChange={this.handleInput}
+                />
                 <button type="submit" className="search-button">
-                  🔎<span>Search</span>
+                  <Emoji symbol="🔎" />
+                  <span>Search</span>
                 </button>
-                {username ? <button onClick={this.handleClear} className="close-icon" type="reset" /> : null}
+                {username ? (
+                  <button
+                    onClick={this.handleClear}
+                    className="close-icon"
+                    type="reset"
+                  />
+                ) : null}
               </form>
             </div>
-            <div className="dynamic">{loading ? <Loader /> : <DisplayBox {...this.state} />}</div>
+            <div className="dynamic">
+              {loading ? <Loader /> : <DisplayBox {...this.state} />}
+            </div>
           </div>
         </div>
       </div>

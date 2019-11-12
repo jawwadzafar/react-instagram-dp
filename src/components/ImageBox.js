@@ -1,19 +1,37 @@
 import React from "react";
+import Emoji from "./Emoji";
 
-const ImageBox = ({ img, followers, following, bio }) => {
+const ImageBox = ({ username, fullName, img, followers, following, bio }) => {
   return (
-    <div>
-      <p>😎 We found it!</p>
-      <a target={"_blank"} href={img}>
-        <p><b>Bio: </b>{bio}</p>
-        <p><b>Followers: </b>{followers} | <b>Following: </b>{following}</p>
-        <div>
-          <img alt={"instagram dp"} src={img} />
-        </div>
-        🙄 View In full size
+    <section className="profileBox">
+      <a
+        href={`https://www.instagram.com/${username}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src={img}
+          alt={`profile pic of ${fullName}`}
+          className="profileBox_img"
+        />
       </a>
-    </div>
+      <p>
+        <a href={img} target="_blank" rel="noopener noreferrer">
+          <Emoji symbol="👉" /> View In full size
+        </a>
+      </p>
+      <h1 className="profileBox_fullName">{fullName}</h1>
+      {bio && <p className="profileBox_bio">{bio}</p>}
+      <ul>
+        <li>
+          <span className="bold">{followers}</span> followers
+        </li>
+        <li>
+          <span className="bold">{following}</span> following
+        </li>
+      </ul>
+    </section>
   );
-}
+};
 
 export default ImageBox;
