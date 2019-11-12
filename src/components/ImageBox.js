@@ -3,25 +3,19 @@ import Emoji from "./Emoji";
 
 const ImageBox = ({ img, followers, following, bio }) => {
   return (
-    <div>
+    <div className="profileBox">
+      <img src={img} alt="username" className="profileBox_img" />
       <p>
-        <Emoji symbol="😎" /> We found it!
+        <a href={img} target="_blank" rel="noopener noreferrer">
+          <Emoji symbol="🙄" /> View In full size
+        </a>
       </p>
-      <a target={"_blank"} href={img}>
-        <p>
-          <b>Bio: </b>
-          {bio}
-        </p>
-        <p>
-          <b>Followers: </b>
-          {followers} | <b>Following: </b>
-          {following}
-        </p>
-        <div>
-          <img alt={"instagram dp"} src={img} />
-        </div>
-        <Emoji symbol="🙄" /> View In full size
-      </a>
+      <strong>Aamir khan</strong>
+      {bio && <p className="profileBox_bio">{bio}</p>}
+      <ul>
+        <li><span className="bold">{followers}</span> followers</li>
+        <li><span className="bold">{following}</span> following</li>
+      </ul>
     </div>
   );
 };

@@ -4,6 +4,7 @@
   box-sizing: border-box;
   border-radius: 0px;
 }
+
 html,
 body,
 #root {
@@ -11,6 +12,11 @@ body,
   margin: 0px;
   padding: 0px;
   font-size: 14px;
+  background-color: #fafafa;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 h3 {
@@ -31,6 +37,7 @@ h2 {
   font-size: 58px;
   margin-top: 0px;
   color: #373737;
+
   @media (max-width: 991px) {
     font-size: 2rem;
   }
@@ -119,8 +126,10 @@ form {
     background: #ff5722;
     color: #fff;
     border: none;
+
     span {
       margin-left: 4px;
+
       @media (max-width: 991px) {
         display: none;
       }
@@ -140,11 +149,13 @@ form {
 p {
   margin: 0px;
 }
+
 .dynamic {
   margin-top: 5px;
   text-align: center;
   min-height: 1px;
   transition: all 2s ease;
+
   a {
     display: block;
     text-decoration: none;
@@ -162,6 +173,7 @@ p {
   position: absolute;
   left: 78%;
 }
+
 .close-icon:after {
   content: "X";
   display: block;
@@ -181,4 +193,60 @@ p {
   font-size: 8px;
   border: 1px solid #ff916f;
   cursor: pointer;
+}
+
+
+
+
+
+// Profile box
+.profileBox {
+  $clr: #262626;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 680px;
+  width: 100%;
+  padding: 1rem;
+  margin: 15px auto;
+  color: $clr;
+  background-color: lighten($clr, 90%);
+  border: 1px solid lighten($clr, 60%);
+  // box-shadow: -1px 4px 8px 1px #ccc;
+  border-radius: 4px;
+
+  a {
+    color: #38c;
+  }
+
+  strong {
+    font-size: 1.5rem;
+    line-height: 2;
+    color: darken($clr, 5%);
+  }
+
+  &_img {
+    border-radius: 50%;
+    $s: 150px;
+    width: $s;
+    height: $s;
+    background-color: lighten($clr, 60%);
+  }
+
+  &_bio{
+    line-height: 2;
+    color: lighten($clr, 20%);
+  }
+
+
+  ul {
+    text-align: left;
+    padding: 0;
+    list-style: none;
+
+    li {
+      margin-right: 5px;
+      float: left;
+    }
+  }
 }
