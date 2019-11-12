@@ -216,13 +216,13 @@ p {
   border-radius: 4px;
 
   a {
-    color: #38c;
+    color: #003569;
   }
 
   &_fullName {
     font-size: 1.5rem;
     line-height: 2;
-    margin:0;
+    margin: 0;
     color: darken($clr, 5%);
   }
 
@@ -234,7 +234,7 @@ p {
     background-color: lighten($clr, 60%);
   }
 
-  &_bio{
+  &_bio {
     line-height: 2;
     color: lighten($clr, 20%);
     padding: 5px 15px;
